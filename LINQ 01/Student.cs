@@ -20,12 +20,12 @@ namespace LINQ_01
         {
             foreach (var student in students)
             {
-                Console.WriteLine($"Id = {student.Id}, Name = {student.Name} , Age = {student.Age} , Gender = {student.Gender}");
+                Console.WriteLine($"Id = {student.Id}, Name = {student.Name} , Age = {student.Age} , Gender = {student.Gender} ,level = {student.Level}");
             }  
         }
         public static void Print(Student student)
         {
-            Console.WriteLine($"Id = {student.Id}, Name = {student.Name} , Age = {student.Age}, Gender = {student.Gender}");
+            Console.WriteLine($"Id = {student.Id}, Name = {student.Name} , Age = {student.Age}, Gender = {student.Gender} ,level = {student.Level}");
         }
     }
 }

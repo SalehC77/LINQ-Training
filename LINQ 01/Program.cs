@@ -5,7 +5,7 @@ Console.WriteLine("Hello, World!");
 
 List<Student> students = new() {
     new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 2},
-    new() {Id = 2 , Name = "Saleh" ,Age = 24 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 2},
+    new() {Id = 1 , Name = "Saleh" ,Age = 24 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 2},
     new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
     new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
     new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
@@ -46,7 +46,32 @@ List<Student> students = new() {
 //students = new List<Student>() { new Student() { Name = "saleh" } };
 //var SingleOrDefault = students.SingleOrDefault();
 //SingleOrDefault = students.SingleOrDefault(s => s.Id == 3);
-//SingleOrDefault = students.SingleOrDefault(new Student() { Name = "Default"});
+//SingleOrDefault = students.SingleOrDefault(new Student() { Name = "Default" });
 //SingleOrDefault = students.SingleOrDefault(s => s.Id == 3, new Student() { Name = "Default" });
+
+
+//var orderby = from s in students
+//              orderby s.Level descending
+//              select s;
+//var orderbyascending = students.OrderBy(s => s.Level);
+//var orderbyDescending = students.OrderByDescending(s => s.Level);
+//Student.PrintAll(orderbyDescending);
+
+//var orderbythenby1 = from s in students
+//                    orderby s.Level, s.Id, s.Age descending
+//                    select s;
+//var orderbythenby2 = students.OrderBy(s => s.Age).ThenBy(s => s.Id).ThenByDescending(s => s.Level);
+
+//Student.PrintAll(orderbythenby2);
+
+
+
+
+
+
+
+
+
+
 
 
