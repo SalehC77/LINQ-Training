@@ -13,6 +13,7 @@ namespace LINQ_01
         public int Age { get; set; }
         public string Phone { get; set; }
         public string Gmail { get; set; }
+        public int Level { get; set; }
         public bool Gender { get; set; }
         
         public static void PrintAll(IEnumerable<Student> students)
