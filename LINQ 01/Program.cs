@@ -4,8 +4,8 @@ using LINQ_01;
 Console.WriteLine("Hello, World!");
 
 List<Student> students = new() {
-    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 2},
-    new() {Id = 1 , Name = "Saleh" ,Age = 24 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 2},
+    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5},
+    new() {Id = 1 , Name = "Saleh" ,Age = 24 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5},
     new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
     new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
     new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
@@ -61,11 +61,58 @@ List<Student> students = new() {
 //                    orderby s.Level, s.Id, s.Age descending
 //                    select s;
 //var orderbythenby2 = students.OrderBy(s => s.Age).ThenBy(s => s.Id).ThenByDescending(s => s.Level);
-
 //Student.PrintAll(orderbythenby2);
 
 
 
+//int[] numbers = new int[] { 5, 3, 85,52 };
+
+//var result = numbers.Order();
+// result = numbers.OrderDescending();
+//foreach (var item in result)
+//{
+//    Console.WriteLine(item );
+//}
+
+//var Order = students.Order(); // this will throw expetion Icomparer interface is not implemented;
+//var OrderIcomparer = students.Order(comparer: new StudentComparer());
+
+//Student.PrintAll(Order);
+
+
+
+//var any = students.Any();// if not empty return true ; else return false
+//Console.WriteLine(any ? "found":"not found");
+
+//var anywithcondition = students.Any(s => s.Level > 4);
+//Console.WriteLine(anywithcondition ? "found" : "not found");
+
+//var all = students.All(s => s.Level > 1) ; all element meet the condition;
+//Console.WriteLine(all);
+
+//Student newtoappend = new Student { Name = "salim" };
+//var Append = students.Append(newtoappend);// to add in the end of list;
+//var prepend = students.Prepend(newtoappend);// to add in the front of list;
+
+
+//var totalcount = students.Count();
+//Console.WriteLine($"total count of student : {totalcount}");
+
+//var totalcountfor = students.Count(s => s.Level > 3);
+//Console.WriteLine($"total count of student : {totalcountfor}");
+
+////mybe if you need more than int32 bit for return the count of elment there is mehode call longCount to return int64 bit ;
+//var longCount = students.Count(s => s.Level > 3);
+//Console.WriteLine($"total longCount of student : {longCount}");
+
+
+// there is anther method call CountBy() in .Net Core 9 
+//var levelsCount = students.CountBy(s => s.level);
+//var levelsCount2 = students.CountBy(s => $"{s.level}-{s.Gender}"); it's give you how many in the level in each Gender
+//foreach (var level in levelsCount)
+//{
+//    Console.WriteLine($"{level.key}--> {level.value}");
+//}
 
 
 
