@@ -5,7 +5,7 @@ Console.WriteLine("Hello, World!");
 
 List<Student> students = new() {
     new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5},
-    new() {Id = 1 , Name = "Saleh" ,Age = 24 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5},
+    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5},
     new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
     new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
     new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
@@ -113,6 +113,28 @@ List<Student> students = new() {
 //{
 //    Console.WriteLine($"{level.key}--> {level.value}");
 //}
+
+
+//var sumwithcondition = students.Where(s => s.Gender == true).Sum(s=> s.Age);
+//Console.WriteLine(sumwithcondition);
+// it's return the sum of ages for all male student;
+
+
+//int[] ints = new int[] { 2, 4, 3, 2 };
+//var avarageint = ints.Average();
+//var avarage = students.Average(s => s.Age);
+//Console.WriteLine(avarage);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
