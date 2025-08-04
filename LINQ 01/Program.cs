@@ -4,14 +4,14 @@ using LINQ_01;
 Console.WriteLine("Hello, World!");
 
 List<Student> students = new() {
-    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5},
-    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5},
-    new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
-    new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
-    new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3},
-    new() {Id = 6 , Name = "Abdullah" ,Age = 25 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4},
-    new() {Id = 7 , Name = "khaled",Age = 33 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4},
-    new() {Id = 8 , Name = "Fatima" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4},
+    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5 , Marks = new List<string> {"34","52" } },
+    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> {"34","52" } },
+    new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"99","88" } },
+    new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"45","454" } },
+    new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"5","1" }},
+    new() {Id = 6 , Name = "Abdullah" ,Age = 25 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","0" }},
+    new() {Id = 7 , Name = "khaled",Age = 33 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"5","545"}},
+    new() {Id = 8 , Name = "Fatima" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","58"}},
 };
 
 //var SqlQerey = from s in students
@@ -125,22 +125,84 @@ List<Student> students = new() {
 //var avarage = students.Average(s => s.Age);
 //Console.WriteLine(avarage);
 
+//int[] ints = new int[] { 2, 4, 3, 2 };
+//var maxint = ints.Max();
+//var maxages = students.Max(s => s.Age);
+//Console.WriteLine(maxages);
+
+//it's return the student that have the maxmum age in the list
+//var maxagestudent = students.MaxBy(s => s.Age);
+//Console.WriteLine(maxagestudentage.Name);
+
+
+//int[] ints = new int[] { 2, 4, 3, 2 };
+//var minint = ints.Min();
+//var minages = students.Min(s => s.Age);
+//Console.WriteLine(minages);
+
+////it's return the student that have the minmum age in the list
+//var minagestudent = students.MinBy(s => s.Age);
+//Console.WriteLine(minagestudent.Name);
+
+
+//string sentence = "the quick brown fox jumps over the lazy dog";
+
+//string[] words = sentence.Split(' ');
+
+//string reversed = words.Aggregate((acc,next) =>
+//{
+//    Console.WriteLine($"acc = {acc} , next = {next}");
+//    return $"{next} {acc}";
+//});
+//Console.WriteLine(reversed);
 
 
 
+//int[] ints = { 4, 8, 8, 3, 9, 0, 7, 8, 2 };
+////here we use seed to start total form zero and next start form 4 the first elment
+//int numEven = ints.Aggregate(seed: 0 ,(total,next) =>
+//{
+//    Console.WriteLine($"total :{total},next :{next} ");
+//    return next % 2 == 0 ? total + 1 : total;
+//}, result=> result * 10);
+
+//Console.WriteLine($"the number of even intgers is: {numEven}");
 
 
+//var resultSelect1 = from s in students
+//                    select new StudentDto(s.Name, s.Age, s.Level, s.Gender);
+
+//var resultSelect2 = from s in students
+//                    select new {s.Name , s.Age ,CurrentLevel = s.Level, s.Gender};
+
+//var resultSelect3 = students.Select(s => new StudentDto($"{s.Name}-{s.Phone}",s.Age,s.Level, s.Gender));
+
+//var resultSelect4 = students.Select(s => new {s.Name,s.Age,s.Level,s.Gender});
+
+//var resultSelect5 = students.Select((s, Index) => new StudentDto($"{s.Name}-{s.Phone}",s.Age,s.Level, s.Gender,Index));
+
+//foreach (var item in resultSelect5)
+//{
+//    Console.WriteLine(item.Index);
+//    Console.WriteLine($"Name:{item.Name}, Age :{item.Age} , Level:{item.Level} ,Gender:{item.Gender}");
+
+//}
 
 
+//var resultSelectMany1 = students.SelectMany(s=> s.Marks);
+//var resultSelectMany2 = students.SelectMany((s,i)=> s.Marks.Select(s=> $"{i}-{s}"));
+//var resultSelectMany3 = students.SelectMany(s => s.Marks , (s,m) => new {DisplayValue = $"{s.Name}-{m}"});
 
+//foreach (var item in resultSelectMany2)
+//{
+//    Console.WriteLine(item);
+//}
 
+//var resultSelect3 = students.Select(s => new StudentDto(s.Name, s.Age, s.Level, s.Gender,string.Join(',',s.Marks)));
 
+//foreach (var item in resultSelect3)
+//{
+//    Console.WriteLine($"Name:{item.Name}, Age :{item.Age} , Level:{item.Level} ,Gender:{item.Gender},Marks : {item.Marks}");
 
-
-
-
-
-
-
-
+//}
 

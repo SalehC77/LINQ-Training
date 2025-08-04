@@ -15,7 +15,8 @@ namespace LINQ_01
         public string Gmail { get; set; }
         public int Level { get; set; }
         public bool Gender { get; set; }
-        
+
+        public IEnumerable<string> Marks { get; set; }
         public static void PrintAll(IEnumerable<Student> students)
         {
             foreach (var student in students)
