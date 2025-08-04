@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LINQ_01;
+using System.Text.RegularExpressions;
 
 Console.WriteLine("Hello, World!");
 
@@ -206,3 +207,63 @@ List<Student> students = new() {
 
 //}
 
+
+//int[] ints = { 3, 4, 5, 6, 6, 7, 7 };
+//var resultDistinct1 = ints.Distinct();
+//var resultDistinct2 = students.SelectMany(s => s.Marks).Distinct();
+//var resultDistinct3 = students.DistinctBy(s => s.Name);
+
+//foreach (var item in resultDistinct3)
+//{
+//    Console.WriteLine(item.Name);
+//}
+
+//var resultGroups1 = from s in students
+//                  group s by s.Level;
+//var resultGroups2 = from s in students
+//                    group s by new {s.Level ,s.Gender};
+
+//var resultGroups3 = students.GroupBy(s => s.Level);
+
+//foreach (var group in resultGroups2)
+//{
+//    Console.WriteLine($"Level :{group.Key}");
+//    foreach (var Student in group)
+//    {
+//        Console.WriteLine($"Name ={Student.Name}");
+//    }
+//}
+
+
+var resultGroups5 = from s in students
+                    group s by new { s.Level, s.Gender }
+                    into g
+                    select new
+                    {
+                        g.Key,
+                        Students = g,
+                        Count = g.Count()
+                    };
+
+var resultGroups6 = students.GroupBy(s => new { s.Level, s.Gender }).Select(g => new
+{
+    g.Key,
+    Students = g,
+    Count = g.Count()
+});
+
+var resultGroups7 = students.GroupBy(s => s.Level,(key,Group) => new
+{
+    Key = key,
+    Students = Group,
+    Count = Group.Count()
+});
+foreach (var group in resultGroups7)
+{
+    Console.WriteLine($"Level :{group.Key}");
+    Console.WriteLine($"Count :{group.Count}");
+    foreach (var Student in group.Students)
+    {
+        Console.WriteLine($"Name = {Student.Name} ,Age = {Student.Age}");
+    }
+}
