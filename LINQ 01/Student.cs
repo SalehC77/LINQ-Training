@@ -26,7 +26,8 @@ namespace LINQ_01
         }
         public static void Print(Student student)
         {
-            Console.WriteLine($"Id = {student.Id}, Name = {student.Name} , Age = {student.Age}, Gender = {student.Gender} ,level = {student.Level}");
+            if (student is null) Console.WriteLine("null");
+            else Console.WriteLine($"Id = {student.Id}, Name = {student.Name} , Age = {student.Age}, Gender = {student.Gender} ,level = {student.Level}");
         }
     }
 }

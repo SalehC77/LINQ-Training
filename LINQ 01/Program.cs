@@ -1,18 +1,19 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LINQ_01;
+using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 
 Console.WriteLine("Hello, World!");
 
 List<Student> students = new() {
     new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5 , Marks = new List<string> {"34","52" } },
-    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> {"34","52" } },
+    new() {Id = 1 , Name = "Saleh" ,Age = 22 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> {"34","52" } },
     new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"99","88" } },
     new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"45","454" } },
     new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"5","1" }},
     new() {Id = 6 , Name = "Abdullah" ,Age = 25 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","0" }},
     new() {Id = 7 , Name = "khaled",Age = 33 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"5","545"}},
-    new() {Id = 8 , Name = "Fatima" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","58"}},
+    new() {Id = 8 , Name = "Fatima" ,Age = 30 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","58"}},
 };
 
 //var SqlQerey = from s in students
@@ -235,35 +236,207 @@ List<Student> students = new() {
 //}
 
 
-var resultGroups5 = from s in students
-                    group s by new { s.Level, s.Gender }
-                    into g
-                    select new
-                    {
-                        g.Key,
-                        Students = g,
-                        Count = g.Count()
-                    };
+//var resultGroups5 = from s in students
+//                    group s by new { s.Level, s.Gender }
+//                    into g
+//                    select new
+//                    {
+//                        g.Key,
+//                        Students = g,
+//                        Count = g.Count()
+//                    };
 
-var resultGroups6 = students.GroupBy(s => new { s.Level, s.Gender }).Select(g => new
-{
-    g.Key,
-    Students = g,
-    Count = g.Count()
-});
+//var resultGroups6 = students.GroupBy(s => new { s.Level, s.Gender }).Select(g => new
+//{
+//    g.Key,
+//    Students = g,
+//    Count = g.Count()
+//});
 
-var resultGroups7 = students.GroupBy(s => s.Level,(key,Group) => new
-{
-    Key = key,
-    Students = Group,
-    Count = Group.Count()
-});
-foreach (var group in resultGroups7)
-{
-    Console.WriteLine($"Level :{group.Key}");
-    Console.WriteLine($"Count :{group.Count}");
-    foreach (var Student in group.Students)
-    {
-        Console.WriteLine($"Name = {Student.Name} ,Age = {Student.Age}");
-    }
-}
+//var resultGroups7 = students.GroupBy(s => s.Level, (key, Group) => new
+//{
+//    Key = key,
+//    Students = Group,
+//    Count = Group.Count()
+//});
+//foreach (var group in resultGroups7)
+//{
+//    Console.WriteLine($"Level :{group.Key}");
+//    Console.WriteLine($"Count :{group.Count}");
+//    foreach (var Student in group.Students)
+//    {
+//        Console.WriteLine($"Name = {Student.Name} ,Age = {Student.Age}");
+//    }
+//}
+
+//var resultGroups8 = students.GroupBy(GetAgeRange, (key, Group) => new
+//{
+//    Key = key,
+//    Students = Group,
+//    Count = Group.Count()
+//});
+//foreach (var group in resultGroups8)
+//{
+//    Console.WriteLine($"Age :{group.Key}");
+//    Console.WriteLine($"Count :{group.Count}");
+//    foreach (var Student in group.Students)
+//    {
+//        Console.WriteLine($"Name = {Student.Name} ,Age = {Student.Age}");
+//    }
+//}
+//static string GetAgeRange (Student student)
+//{
+//    var Agerange = Math.Abs(student.Age / 10) * 10;
+//    return $"From {Agerange} to {Agerange + 9}";
+//}
+
+
+//List<Employee> employees = new(){
+//    new Employee("Ali","HR",60000),
+//    new Employee("Hassan","IT",80000),
+//    new Employee("Waleed","HR",70000),
+//    new Employee("Mazen","IT",90000)
+
+
+//};
+
+//var salarybyDepartment = employees.GroupBy(e => e.Department,
+//    (key, employeesGroup) => new
+//    {
+//        Department = key,
+//        Totalsalaries = employeesGroup.Sum(e => e.Salary)
+
+//    });
+//foreach (var item in salarybyDepartment)
+//{
+//    Console.WriteLine($"Department : {item.Department} , Total Salaries: {item.Totalsalaries}");
+//}
+
+
+
+//var levelWithMinAndMaxages = students.GroupBy(s => s.Level, (key, group) => new
+//{
+//    Level = key,
+//    MinAgeValue = group.Min(s=> s.Age),
+//    MaxAgeValue = group.Max(s=> s.Age)
+
+
+//}) ;
+
+//foreach (var item in levelWithMinAndMaxages)
+//{
+//    Console.WriteLine($"level :{item.Level} ,MinValue:{item.MinAgeValue},MaxValue:{item.MaxAgeValue} ");
+//}
+
+
+
+
+//var tolookup1 = students.ToLookup(s => s.Level) ;
+
+//foreach (var group in tolookup1)
+//{
+//    Console.WriteLine(group.Key);
+//    foreach (var student in group)
+//    {
+//        Console.WriteLine($"name :{student.Name},age : {student.Age}");
+//    }
+//}
+
+//var tolookup2 = students.ToLookup(s => s.Level,s => new StudentDto(s.Name,s.Age,s.Level,s.Gender,"empty"));
+
+//foreach (var group in tolookup2)
+//{
+//    Console.WriteLine($"level :{group.Key}");
+//    foreach (var student in group)
+//    {
+//        Console.WriteLine($"name :{student.Name},age : {student.Age}");
+//    }
+//}
+
+//tolookup funcation is immedite excution not defured excution like groupby
+//groupby is better in the performance at the level of database to come ready grouping not local like tolookup
+
+
+// sub the element into supelement like  8 studnets / 2 parts == 4 parts
+//var chunks = students.Chunk(2);
+//foreach (var chunk in chunks)
+//{
+//    Student.PrintAll(chunk);
+//    Console.WriteLine("****************");
+//}
+
+
+//var takebycount = students.Take(4);
+//Student.PrintAll(takebycount);
+//Console.WriteLine("***********************");
+//var takebyRange = students.Take(new Range(0,5));
+//Student.PrintAll(takebyRange);
+//Console.WriteLine("***********************");
+
+//var takeLastbycount = students.TakeLast(2);
+//Student.PrintAll(takeLastbycount);
+//Console.WriteLine("***********************");
+
+//var takewhile1 = students.TakeWhile(s => s.Age > 18);
+//Student.PrintAll(takewhile1);
+
+//var takewhile2 = students.TakeWhile((s,i) => i < 5 );
+//Student.PrintAll(takewhile2);
+
+
+//var skip = students.Skip(3);
+//Student.PrintAll(skip);
+
+//var skiplast = students.SkipLast(3);
+//Student.PrintAll(skiplast);
+
+//var skipwhile = students.SkipWhile(s=> s.Age > 18);
+//Student.PrintAll(skipwhile);
+
+
+//int pageSize = 10;
+//int pageNumber = 2;
+//var pagination = students.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+//Student.PrintAll(pagination);
+
+
+//var emptylist = Enumerable.Empty<Student>();
+
+//var defaultifempty1 = emptylist.DefaultIfEmpty();
+//var defaultifempty2 = students.DefaultIfEmpty();
+//var defaultifempty3 = emptylist.DefaultIfEmpty(new Student() { Id = 55 ,Name = "saleh"});
+//Student.PrintAll(defaultifempty3);
+
+
+//var elementAt1 = students.ElementAt(1);
+//Student.Print(elementAt1);
+//var elementAt2 = students.ElementAt(new Index (2));
+//Student.Print(elementAt2);
+//var elementAt3 = students.ElementAt(new Index (1,true));
+//Student.Print(elementAt3);
+
+//int[] ints = {};
+//Console.WriteLine(ints.ElementAtOrDefault(2));
+//var elementAtOrDefault1 = students.ElementAtOrDefault(18);
+//Student.Print(elementAtOrDefault1);
+//var elementAtOrDefault2 = students.ElementAtOrDefault(new Index(0,true));
+//Student.Print(elementAtOrDefault2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
