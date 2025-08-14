@@ -7,6 +7,16 @@ Console.WriteLine("Hello, World!");
 
 List<Student> students = new() {
     new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5 , Marks = new List<string> {"34","52" } },
+    new() {Id = 2 , Name = "Saleh" ,Age = 22 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> {"34","52" } },
+    new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"99","88" } },
+    new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"45","454" } },
+    new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"5","1" }},
+    new() {Id = 6 , Name = "Abdullah" ,Age = 25 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","0" }},
+    new() {Id = 7 , Name = "khaled",Age = 33 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"5","545"}},
+    new() {Id = 8 , Name = "Fatima" ,Age = 30 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","58"}},
+};
+List<Student> studentsAgain = new() {
+    new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5 , Marks = new List<string> {"34","52" } },
     new() {Id = 1 , Name = "Saleh" ,Age = 22 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> {"34","52" } },
     new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"99","88" } },
     new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"45","454" } },
@@ -15,6 +25,7 @@ List<Student> students = new() {
     new() {Id = 7 , Name = "khaled",Age = 33 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"5","545"}},
     new() {Id = 8 , Name = "Fatima" ,Age = 30 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","58"}},
 };
+
 
 //var SqlQerey = from s in students
 //             where s.Age > 20
@@ -423,7 +434,80 @@ List<Student> students = new() {
 //Student.Print(elementAtOrDefault2);
 
 
+// in dotnet 9,10
+//var Index = students.Index();
+//foreach (var student in Index)
+//{
+//    Console.WriteLine($"index:{student.Index}: car:{student.Item}");
+//}
 
+//var Concatlist = students.Concat(students);
+//Student.PrintAll(Concatlist);
+
+
+// here we implemention the IEquatable interface for the class student to let Union work fine
+//var Union = students.Union(studentsAgain);
+//Student.PrintAll(Union);
+
+//var Unionby = students.UnionBy(studentsAgain,s => s.Id);
+//Student.PrintAll(Unionby);
+
+
+
+//int[] ints1 = { 1, 2, 3, 4, 5 };
+//string[] words1 = { "one", "tow", "three", "four", "five" };
+
+//var zip1 = ints1.Zip(words1);
+//foreach (var (First,Second) in zip1)
+//{
+//    Console.WriteLine($"first:{First}, Second:{Second}");
+//}
+//Hint: there also another overload for zip method that take three tuple mean three list
+
+//int[] ints2 = { 1, 2, 3, 4, 5 };
+//string[] words2 = { "one", "tow", "three", "four", "five" };
+
+//var zip2 = ints2.Zip(words2,(numbers,words) => $"{numbers} -- {words}");
+//var zip3 = ints2.Zip(words2,(numbers,words) => new { Number = numbers, Word = words});
+//foreach (var item in zip2)
+//{
+//    Console.WriteLine($"Item : {item}");
+//}
+//foreach (var item in zip3)
+//{
+//    Console.WriteLine($"{item.Number} -- {item.Word}");
+//}
+
+
+//var StudentAsArray = students.ToArray();
+//for (int i = 0; i < StudentAsArray.Length; i++)
+//{
+//    Console.WriteLine($"{StudentAsArray[i].Name} , {StudentAsArray[i].Age}");
+//}
+
+//var StudentAsDictionary1 = students.ToDictionary(s => s.Id);
+//var StudentAsDictionary2 = students.ToDictionary(s => s.Id,s => $"{s.Name} - {s.Age}");
+//foreach (var item in StudentAsDictionary2)
+//{
+//    Console.WriteLine($"Key :{item.Key}");
+//    //Console.WriteLine($"value :{item.Value.Name}");
+//    Console.WriteLine($"value :{item.Value}");
+//}
+
+
+//var StudentAsHashSet = students.ToHashSet();
+//foreach (var item in StudentAsHashSet)
+//{
+//    Console.WriteLine(item.Name);
+
+//}
+//// here the tolist methode make the Excution of where Immedite not defured
+//var StudentAsTolist1 = students.Where(s => s.Level > 2).ToList();
+//var StudentAsTolist2 = students.ToList();
+//foreach (var item in StudentAsTolist2)
+//{
+//    Console.WriteLine(item.Name);
+//}
 
 
 
