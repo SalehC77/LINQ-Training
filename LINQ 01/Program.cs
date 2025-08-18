@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LINQ_01;
 using System.Collections.Concurrent;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
 Console.WriteLine("Hello, World!");
@@ -510,9 +511,146 @@ List<Student> studentsAgain = new() {
 //}
 
 
+List<Make> makes = new()
+{
+    new Make(1,"Ford"),
+    new Make(2,"chevrolet"),
+    new Make(3,"toyota"),
+    new Make(4,"honda"),
+    new Make(5,"Nissan"),
+    new Make(6,"mercury"),
+};
+List<Model> models = new()
+{
+    new Model(1,"Gt",1),
+    new Model(2,"Mystique",6),
+    new Model(3,"Maxima",5),
+    new Model(4,"Mariner",6),
+    new Model(5,"Mr2",3),
+    new Model(6,"Malibu",2),
+};
+
+List<Car> cars = new()
+{
+    new Car(1,1,1,"ajifolasalfkf"),
+    new Car(2,6,4,"sdssafasfas"),
+    new Car(3,2,6,"safdasfsadfa"),
+    new Car(4,4,7,"sdfdfsdgfd"),
+    new Car(5,3,5,"dsgsdggsgd"),
+    new Car(6,5,3,"dfsvgsddsgd"),
+};
+
+//var resultJoin1 = from car in cars
+//                 join make in makes
+//                 on car.MakeId equals make.Id
+//                 join model in models 
+//                 on car.ModelId equals model.Id
+//                 select new
+//                 {
+//                     car.Id,
+//                     Make = make.Name,
+//                     Model = model.Name,
+//                     car.VIN
+//                 };
+//Console.WriteLine("hello");
+
+//var resultJoin2 = cars.Join(makes,car => car.Id,make => make.Id,
+//                (car,make) => new
+//                {
+//                   car.Id,
+//                   Make = make.Name,
+//                   ModelId = car.ModelId,
+//                   car.VIN
+//                }
+//                ).Join(models,car => car.ModelId,model => model.Id,
+//                (car,model) => new
+//                {
+//                    car.Id,
+//                    car.Make,
+//                    Model = model.Name,
+//                    car.VIN
+//                }
+
+
+//    );
+
+//var resultJoingroup3 = from make in makes
+//                  join model in models
+//                     on make.Id equals model.MakeId
+//                     into groupModels
+//                  where groupModels.Any()
+//                  select new
+//                  {
+//                      Make = make.Name,
+//                      Models = groupModels.Select(m => m.Name),
+//                      ModelCount = groupModels.Count()
+
+//                  };
+
+
+//var resultJoingroup4 = makes.GroupJoin(models,make => make.Id , model => model.Id,
+//                        (make,model) => new
+//                        {
+//                            Make = make.Name,
+//                            Models = model.Select(m => m.Name),
+//                            ModelsCount = model.Count()
+//                        }).Where(x => x.Models.Any());
+
+
+//var resultLeftJoin1 = from make in makes
+//                      join model in models
+//                      on make.Id equals model.MakeId
+//                       into groupmodels
+//                      from gm in groupmodels.DefaultIfEmpty()
+//                      select new 
+//                      { 
+//                        Make = make.Name,
+//                        Model = gm?.Name
+//                      }
+//                      ;
+
+//var resultLeftJoin2 = from car in cars
+//                      join model in models
+//                      on car.ModelId equals model.Id
+//                         into groupmodels
+//                      from gm in groupmodels.DefaultIfEmpty()
+//                      select new
+//                      {
+//                          car.Id,
+//                          gm?.Name
+//                      };
+
+
+//var resultLeftJoin3 = makes.GroupJoin(models, make => make.Id, model => model.Id,
+//                        (make, models) => new
+//                        {
+//                            Make = make.Name,
+//                            Models = models
+                            
+//                        }).SelectMany(
+//                            gm => gm.Models.DefaultIfEmpty(),
+//                            (make, model) => new
+//                            {
+//                                Make = make.Make,
+//                                Model = model?.Name
+
+//                            });
 
 
 
+//int[] ints = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//var isExists1 = ints.Contains(4);
+
+
+//var newstudentSameAsinlist = new Student() { Id = 1, Name = "Saleh", Age = 20, Gender = true, Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> { "34", "52" } };
+//var isExists2 = students.Contains(newstudentSameAsinlist);
+//Console.WriteLine(isExists2);
+
+
+
+//int[] selectedIds = new[] { 7, 2, 1, 3, 4 };
+//var selectedStudent = students.Where(s => selectedIds.Contains(s.Id));
+//Student.PrintAll(selectedStudent);
 
 
 
