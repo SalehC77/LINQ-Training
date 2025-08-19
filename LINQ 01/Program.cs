@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LINQ_01;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
@@ -20,9 +21,6 @@ List<Student> studentsAgain = new() {
     new() {Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5 , Marks = new List<string> {"34","52" } },
     new() {Id = 1 , Name = "Saleh" ,Age = 22 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 5, Marks = new List<string> {"34","52" } },
     new() {Id = 3 , Name = "Ali" ,Age = 80 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"99","88" } },
-    new() {Id = 4 , Name = "Salim" ,Age = 11 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"45","454" } },
-    new() {Id = 5 , Name = "Mohammed" ,Age = 44 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 3, Marks = new List<string> {"5","1" }},
-    new() {Id = 6 , Name = "Abdullah" ,Age = 25 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","0" }},
     new() {Id = 7 , Name = "khaled",Age = 33 ,Gender = false,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"5","545"}},
     new() {Id = 8 , Name = "Fatima" ,Age = 30 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com", Level = 4, Marks = new List<string> {"7","58"}},
 };
@@ -626,7 +624,7 @@ List<Car> cars = new()
 //                        {
 //                            Make = make.Name,
 //                            Models = models
-                            
+
 //                        }).SelectMany(
 //                            gm => gm.Models.DefaultIfEmpty(),
 //                            (make, model) => new
@@ -654,9 +652,96 @@ List<Car> cars = new()
 
 
 
+//int[] numbers1 = new int[] { 1, 2, 3, 4, 5 };
+//int[] numbers2 = new int[] { 1, 2, 6, 4, 5 };
+
+//var intersect1 = numbers1.Intersect(numbers2);
+//foreach (var item in intersect1)
+//{
+//    Console.WriteLine(item);
+//}
 
 
 
+// here we use  IEquatable<Student>  to give clear result;
+//var intersect2 = students.Intersect(studentsAgain);
+//Student.PrintAll(intersect2);
+
+//var intersectby1 = students.IntersectBy(studentsAgain.Select(s => new { s.Id ,s.Name}),s => new {s.Id,s.Name});
+//Student.PrintAll(intersectby1);
+
+
+//int[] numbers1 = new int[] { 1, 2, 3, 4, 5 };
+//int[] numbers2 = new int[] { 1, 2, 3, 4, 5 };
+
+//var result1 = numbers1.SequenceEqual(numbers2);
+//var result2 = numbers1.Order().SequenceEqual(numbers2.Order());
+
+//Console.WriteLine($"result1:{result1},result2:{result2}");
+
+
+//int[] numbers1 = new int[] { 1, 2, 9, 8, 5 };
+//int[] numbers2 = new int[] { 1, 2, 3, 4, 5 };
+
+//var resultExcpet1 = numbers1.Except(numbers2);
+//foreach (var item in resultExcpet1)
+//{
+//    Console.WriteLine(item);
+//}
+
+
+//var resultExcpet2 = students.Except(studentsAgain);
+//Student.PrintAll(resultExcpet2);
+
+//var resultExcpetBy = students.ExceptBy(studentsAgain.Select(s => s.Id), s => s.Id);
+//Student.PrintAll(resultExcpetBy);
+
+
+//ArrayList arrayList = new()
+//{
+//  "saleh",
+//  3,
+//  4,
+//  "ahmed",
+//  new Student(){Id = 1 , Name = "Saleh" ,Age = 20 ,Gender = true,Phone = "774361224", Gmail = "salehbenjahlan@gmail.com" , Level = 5 , Marks = new List<string> {"34","52" } }
+
+//};
+
+//var stringsonly = arrayList.OfType<string>();
+//var intsonly = arrayList.OfType<int>();
+//var studentsonly = arrayList.OfType<Student>();
+
+//foreach (var item in stringsonly)
+//{
+//    Console.WriteLine(item);
+//}
+
+
+//var range = Enumerable.Range(1, 10);
+//foreach (var item in range)
+//{
+//    Console.WriteLine(item);
+//}
+
+//var repeat = Enumerable.Repeat("saleh", 10);
+//foreach (var item in repeat)
+//{
+//    Console.WriteLine(item);
+//}
+
+
+//int[] numbers = new int[] { 1, 2, 9, 8, 5 };
+//var ReversResult = numbers.Reverse();
+//foreach (var item in ReversResult)
+//{
+//    Console.WriteLine(item);
+//}
+
+//before .Net 10
+//var result = students.OrderBy(s => Guid.NewGuid());
+
+//after . Net 10
+//var result = students.Shuffle().Take(5);
 
 
 
